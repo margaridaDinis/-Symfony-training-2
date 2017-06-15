@@ -1,8 +1,8 @@
 <?php
 namespace AppBundle\Admin;
 
-use AppBundle\Entity\Enum\JamTypeEnum;
-use AppBundle\Entity\Enum\JamYearEnum;
+use AppBundle\Entity\JamType;
+use AppBundle\Entity\Year;
 use AppBundle\Service\JamJarService;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -28,14 +28,12 @@ class JamJarAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('jamType', 'choice', array(
-                'constraints' => new Assert\NotBlank(),
-                'choices' => JamTypeEnum::TYPES,
+            ->add('jamType', 'entity', array(
+                'class' => JamType::class,
                 'placeholder' => 'Choose a jam'
             ))
-            ->add('year', 'choice', array(
-                'constraints' => new Assert\NotBlank(),
-                'choices' => JamYearEnum::YEARS,
+            ->add('jamYear', 'entity', array(
+                'class' => Year::class,
                 'placeholder' => 'Choose an year'
             ))
             ->add('comment', 'textarea', array(
@@ -50,16 +48,17 @@ class JamJarAdmin extends AbstractAdmin
             ));
         }
     }
+
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('jamType');
-        $datagridMapper->add('year');
+        $datagridMapper->add('jamYear');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('jamType');
-        $listMapper->addIdentifier('year');
+        $listMapper->addIdentifier('jamYear');
         $listMapper->addIdentifier('comment');
     }
 

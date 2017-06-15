@@ -23,13 +23,17 @@ class JamJar
 
     /**
      * @ORM\ManyToOne(targetEntity="JamType", inversedBy="jamJars")
-     * @ORM\JoinColumn(name="jam_type_id", referencedColumnName="id")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="jam_type_id", referencedColumnName="id")
+     * })
      */
     private $jamType;
 
     /**
      * @ORM\ManyToOne(targetEntity="Year", inversedBy="jamJars")
-     * @ORM\JoinColumn(name="year_id", referencedColumnName="id")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="year_id", referencedColumnName="id")
+     * })
      */
     private $jamYear;
 
@@ -75,52 +79,5 @@ class JamJar
     {
         return $this->comment;
     }
-
-    /**
-     * Set jamType
-     *
-     * @param \AppBundle\Entity\JamType $jamType
-     *
-     * @return JamJar
-     */
-    public function setJamType(\AppBundle\Entity\JamType $jamType = null)
-    {
-        $this->jamType = $jamType;
-
-        return $this;
-    }
-
-    /**
-     * Get jamType
-     *
-     * @return \AppBundle\Entity\JamType
-     */
-    public function getJamType()
-    {
-        return $this->jamType;
-    }
-
-    /**
-     * Set jamYear
-     *
-     * @param \AppBundle\Entity\Year $jamYear
-     *
-     * @return JamJar
-     */
-    public function setJamYear(\AppBundle\Entity\Year $jamYear = null)
-    {
-        $this->jamYear = $jamYear;
-
-        return $this;
-    }
-
-    /**
-     * Get jamYear
-     *
-     * @return \AppBundle\Entity\Year
-     */
-    public function getJamYear()
-    {
-        return $this->jamYear;
-    }
 }
+

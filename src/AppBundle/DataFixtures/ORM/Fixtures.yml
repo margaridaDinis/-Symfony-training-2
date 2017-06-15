@@ -1,5 +1,38 @@
+AppBundle\Entity\JamType:
+  type_1:
+    jam: 'Strawberry'
+  type_2:
+    jam: 'Pumpkin'
+  type_3:
+    jam: 'Red Pepper'
+  type_4:
+    jam: 'Peach'
+
+AppBundle\Entity\Year:
+  year_1:
+   year: '2014'
+  year_2:
+   year: '2015'
+  year_3:
+   year: '2016'
+  year_4:
+   year: '2017'
+
+
 AppBundle\Entity\JamJar:
-    Exercise{1..10}:
-        jamType: '<jamTypes()>'
-        year: '<jamYears()>'
-        comment: '50%? <sentence()>'
+  Jam_1:
+    jamType: '@type_1'
+    jamYear: '@year_4'
+    comment: '50%? <sentence()>'
+  Jam_2:
+    jamType: '@type_2'
+    jamYear: '@year_3'
+    comment: '50%? <sentence()>'
+  Jam_3:
+    jamType: '@type_3'
+    jamYear: '@year_2'
+    comment: '50%? <sentence()>'
+  Jam_4:
+    jamType: '@type_4'
+    jamYear: '@year_1'
+    comment: '50%? <sentence()>'

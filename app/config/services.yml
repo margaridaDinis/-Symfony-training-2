@@ -15,3 +15,15 @@ services:
                 - { name: sonata.admin, manager_type: orm, label: JamJar }
             calls:
                 - [ getJamJarService, ['@jamjar.service']]
+
+    admin.jamtype:
+            class: AppBundle\Admin\JamTypeAdmin
+            arguments: [~, AppBundle\Entity\JamType, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: JamType }
+
+    admin.jamYear:
+              class: AppBundle\Admin\JamYearAdmin
+              arguments: [~, AppBundle\Entity\Year, ~]
+              tags:
+                  - { name: sonata.admin, manager_type: orm, label: JamYear }
